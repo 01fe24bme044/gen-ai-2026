@@ -1,0 +1,16 @@
+{
+    "name": "ThermoViz Web Platform",
+    "short_name": "ThermoViz",
+    "description": "Interactive Thermodynamics Educational Platform by Tejaswini Patil",
+    "start_url": "app.html",
+    "display": "standalone",
+    "background_color": "#020617",
+    "theme_color": "#3b82f6",
+    "icons": [
+        {
+            "src": "assets/images/logo.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

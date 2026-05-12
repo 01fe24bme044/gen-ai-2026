@@ -1,0 +1,42 @@
+        <div class="card katex-view">
+            <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:1rem;">
+                <div>
+                    <h2 style="color: var(--primary); margin: 0 0 0.35rem 0;">University formula cheat sheet</h2>
+                    <p style="margin:0;font-size:0.9rem;color:var(--text-muted);">KaTeX-rendered summary — use Export for print-ready PDF.</p>
+                </div>
+                <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+                    <button type="button" class="btn" style="background: var(--primary);" onclick="window.exportFormulaSheetPdf()">Export PDF (print)</button>
+                    <button type="button" class="btn" style="background: var(--bg-darker); border: 1px solid var(--accent); color: var(--accent);" onclick="window.print()">Print this page</button>
+                </div>
+            </div>
+            <div id="formula-sheet-export" class="grid-2">
+                <div class="glass" style="padding:1rem; border-radius:8px;">
+                    <h3 style="color:var(--accent); margin-top:0;">First law & boundary work</h3>
+                    $$ Q - W = \Delta U \quad \text{(closed)} \qquad Q - W_s = \Delta H \quad \text{(open, shaft work)} $$
+                    $$ W_{\text{isobar}} = P(V_2 - V_1) $$
+                    $$ W_{\text{isoth}} = nRT \ln\!\frac{V_2}{V_1} $$
+                    $$ W_{\text{adiab}} = \frac{P_1 V_1 - P_2 V_2}{\gamma - 1} $$
+                    $$ W_{\text{poly}} = \frac{P_1 V_1 - P_2 V_2}{n - 1} \quad (\text{polytropic index } n \neq 1) $$
+                </div>
+                <div class="glass" style="padding:1rem; border-radius:8px;">
+                    <h3 style="color:var(--accent); margin-top:0;">Entropy & second law</h3>
+                    $$ \Delta S = \int \frac{\delta Q_{\mathrm{rev}}}{T} $$
+                    $$ \Delta S = n C_p \ln\!\frac{T_2}{T_1} - n R \ln\!\frac{P_2}{P_1} $$
+                    $$ \eta_{\mathrm{Carnot}} = 1 - \frac{T_C}{T_H} $$
+                    $$ \mathrm{COP}_{R} = \frac{T_C}{T_H - T_C} \qquad \mathrm{COP}_{HP} = \frac{T_H}{T_H - T_C} $$
+                </div>
+                <div class="glass" style="padding:1rem; border-radius:8px;">
+                    <h3 style="color:var(--accent); margin-top:0;">Gas cycles</h3>
+                    $$ \eta_{\mathrm{Otto}} = 1 - \frac{1}{r^{\gamma - 1}} $$
+                    $$ \eta_{\mathrm{Brayton}} = 1 - \frac{1}{r_p^{(\gamma - 1)/\gamma}} $$
+                    $$ \eta_{\mathrm{Rankine}} \approx \frac{(h_1 - h_2) - w_p}{(h_1 - h_4)} $$
+                    $$ \mathrm{MEP} = \frac{W_{\mathrm{net}}}{V_{\mathrm{disp}}} $$
+                </div>
+                <div class="glass" style="padding:1rem; border-radius:8px;">
+                    <h3 style="color:var(--accent); margin-top:0;">Properties & steam</h3>
+                    $$ H = U + PV \qquad C_p - C_v = R $$
+                    $$ \gamma = \frac{C_p}{C_v} $$
+                    $$ x = \frac{m_v}{m_f + m_v} \qquad h = h_f + x\, h_{fg} $$
+                </div>
+            </div>
+        </div>

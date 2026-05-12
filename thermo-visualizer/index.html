@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThermoViz | KLE Technological University</title>
+    <link rel="manifest" href="manifest.json">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --accent: #8b5cf6;
+            --bg: #020617;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-y: auto;
+        }
+
+        /* Abstract Background */
+        .bg-mesh {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(2, 6, 23, 0.7), rgba(2, 6, 23, 0.9)), url('assets/images/wallpaper.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 90%;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        /* Logo styling */
+        .logo-ring {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            box-shadow: 0 0 0 6px rgba(59,130,246,0.25), 0 0 40px rgba(59,130,246,0.3), 0 0 80px rgba(139,92,246,0.2);
+            padding: 12px;
+            animation: logoGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes logoGlow {
+            from { box-shadow: 0 0 0 6px rgba(59,130,246,0.25), 0 0 40px rgba(59,130,246,0.3), 0 0 80px rgba(139,92,246,0.2); }
+            to { box-shadow: 0 0 0 8px rgba(139,92,246,0.35), 0 0 60px rgba(139,92,246,0.4), 0 0 100px rgba(59,130,246,0.3); }
+        }
+
+        .logo-ring img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        /* Typography */
+        .university {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .name {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 0 0 0.8rem;
+            letter-spacing: -1px;
+            animation: shimmer 5s ease-in-out infinite;
+            background-size: 200%;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% }
+            50% { background-position: 100% }
+        }
+
+        .usn {
+            display: inline-block;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            background: rgba(59,130,246,0.1);
+            border: 2px solid rgba(59,130,246,0.3);
+            border-radius: 50px;
+            padding: 0.5rem 2rem;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+        }
+
+        /* Tags and descriptions */
+        .project-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #a855f7;
+            background: rgba(168,85,247,0.1);
+            border: 2px solid rgba(168,85,247,0.3);
+            border-radius: 50px;
+            padding: 0.5rem 1.8rem;
+            margin-bottom: 2.5rem;
+            letter-spacing: 1px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #a855f7;
+            animation: blink 1.4s ease-in-out infinite;
+        }
+
+        @keyframes blink { 
+            0%, 100% { opacity: 1; } 
+            50% { opacity: 0.2; } 
+        }
+
+        .divider {
+            width: 150px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--primary), var(--accent), transparent);
+            margin: 0 auto 3rem;
+            border-radius: 2px;
+        }
+
+        .description {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+        }
+
+        /* Buttons & Accessibility */
+        .cta-container {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.2rem 3rem;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            outline: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-enter {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            box-shadow: 0 4px 20px rgba(59,130,246,0.4);
+        }
+
+        .btn-enter:hover, .btn-enter:focus {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(139,92,246,0.5);
+        }
+
+        /* Focus rings for keyboard navigation */
+        .btn:focus-visible, a:focus-visible {
+            box-shadow: 0 0 0 4px var(--bg), 0 0 0 8px var(--primary);
+        }
+        
+        /* Stats row below */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .stat-item h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.5rem;
+            margin: 0 0 0.5rem;
+            background: linear-gradient(135deg, #f8fafc, #94a3b8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .stat-item p {
+            color: var(--text-muted);
+            margin: 0;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-mesh"></div>
+    
+    <main class="container">
+        <!-- Logo removed -->
+        
+        <!-- University & Department -->
+        <p class="university" style="margin-bottom: 0.5rem;">KLE Technological University, Hubballi</p>
+        <p class="university" style="font-size: 0.9rem; color: var(--primary); margin-bottom: 1.5rem;">Department of Mechanical Engineering</p>
+        
+        <!-- Name -->
+        <h1 class="name">TEJASWINI PATIL</h1>
+        
+        <!-- USN -->
+        <div class="usn">USN: 01FE24BME044</div>
+        <br>
+        
+        <!-- Project tag -->
+        <div class="project-tag">
+            <span class="dot"></span>
+            Gen AI Project &nbsp;&middot;&nbsp; 2025&ndash;2026
+        </div>
+        
+        <div class="divider"></div>
+        
+        <!-- App title -->
+        <p class="description">
+            An advanced AI-powered interactive thermodynamics learning platform &mdash; featuring real-time simulations from fundamental gas laws to quantum heat engines.
+        </p>
+        
+        <!-- CTA button with keyboard accessibility -->
+        <div class="cta-container">
+            <a href="app.html" class="btn btn-enter" id="enter-btn" aria-label="Enter the ThermoViz Platform">
+                🚀 Enter Platform
+            </a>
+        </div>
+        
+        <!-- Stats -->
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>25+</h3>
+                <p>Simulators</p>
+            </div>
+            <div class="stat-item">
+                <h3>7</h3>
+                <p>Advanced Modules</p>
+            </div>
+            <div class="stat-item">
+                <h3>1</h3>
+                <p>AI Tutor</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Ensure keyboard focus works immediately
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('enter-btn');
+            if(btn) btn.focus();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+        <div class="card katex-view" style="margin-bottom: 2rem;">
+            <h2 style="color: var(--primary); margin-bottom: 0.6rem;">Thermodynamic formula derivations</h2>
+            <p style="font-size: 0.95rem; color: var(--text-muted);">Exam-style steps below use <strong>KaTeX</strong>. Symbols such as \( \gamma \), \( \Delta \), and \( \int \) replace plain-text placeholders.</p>
+        </div>
+        <div class="grid-2">
+            <div class="card katex-view" style="grid-column: span 2; border-left: 4px solid var(--accent);">
+                <h3 style="color: var(--accent);">1. Work — reversible isothermal expansion</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">Ideal gas at constant \( T \), volume \( V_1 \to V_2 \).</p>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem;">
+                    <div style="flex: 1; min-width: 220px; background: var(--bg-darker); padding: 1rem; border-radius: 8px;">
+                        <p style="font-size: 0.9rem; color: var(--text-muted);"><strong>Steps 1–2.</strong> Boundary work increment \( \mathrm{d}W = P\,\mathrm{d}V \).</p>
+                    </div>
+                    <div style="flex: 1; min-width: 180px; background: var(--bg-darker); padding: 1rem; border-radius: 8px;">
+                        <p style="font-size: 0.85rem; color: var(--text-muted);"><strong>Sketch:</strong> \( P \) vs \( V \) — hyperbolic path \( PV = \text{const} \).</p>
+                    </div>
+                </div>
+                <div style="background: var(--bg-darker); padding: 1rem; border-radius: 8px;">
+                    <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.6rem;"><strong>Step 3.</strong> Ideal gas \( PV = nRT \Rightarrow P = nRT/V \).</p>
+                    $$ W = \int_{V_1}^{V_2} \frac{nRT}{V}\,\mathrm{d}V $$
+                    <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0.8rem 0 0.4rem;"><strong>Step 4.</strong> \( T \) constant \( \Rightarrow \)</p>
+                    $$ W = nRT \int_{V_1}^{V_2} \frac{1}{V}\,\mathrm{d}V $$
+                    <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0.8rem 0 0.4rem;"><strong>Step 5.</strong></p>
+                    $$ W = nRT \bigl[ \ln V \bigr]_{V_1}^{V_2} = nRT \ln\!\frac{V_2}{V_1} $$
+                </div>
+                <p style="margin-top: 0.75rem; font-size: 0.85rem;"><strong>Prerequisite:</strong> logarithmic integral \( \int \frac{1}{x}\,\mathrm{d}x \).</p>
+            </div>
+
+            <div class="card katex-view" style="grid-column: span 2; border-left: 4px solid #3b82f6;">
+                <h3 style="color: #3b82f6;">2. Work — reversible adiabatic expansion</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">No heat transfer; \( PV^\gamma = \text{const} \), \( \gamma = C_p/C_v \).</p>
+                <div style="background: var(--bg-darker); padding: 1rem; border-radius: 8px;">
+                    <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.5rem;"><strong>Step 2.</strong></p>
+                    $$ W = \int_{V_1}^{V_2} P\,\mathrm{d}V $$
+                    <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0.8rem 0 0.4rem;"><strong>Step 3.</strong> \( P = C V^{-\gamma} \) with \( C = P_1 V_1^\gamma = P_2 V_2^\gamma \).</p>
+                    $$ W = \int_{V_1}^{V_2} C\, V^{-\gamma}\,\mathrm{d}V $$
+                    <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0.8rem 0 0.4rem;"><strong>Step 4.</strong> Power rule \( \int x^n\,\mathrm{d}x \).</p>
+                    $$ W = C \left[ \frac{V^{1-\gamma}}{1-\gamma} \right]_{V_1}^{V_2} = \frac{C\,V_2^{1-\gamma} - C\,V_1^{1-\gamma}}{1-\gamma} $$
+                    <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0.8rem 0 0.4rem;"><strong>Step 5.</strong> Substitute \( C \).</p>
+                    $$ W = \frac{P_2 V_2 - P_1 V_1}{1-\gamma} = \frac{P_1 V_1 - P_2 V_2}{\gamma - 1} $$
+                </div>
+                <p style="margin-top: 0.75rem; font-size: 0.85rem;"><strong>Prerequisite:</strong> Poisson relation \( PV^\gamma = \text{const} \).</p>
+            </div>
+
+            <div class="card katex-view" style="grid-column: span 2; border-left: 4px solid #10b981;">
+                <h3 style="color: #10b981;">3. Entropy change — ideal gas</h3>
+                <div style="background: var(--bg-darker); padding: 1rem; border-radius: 8px;">
+                    <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.5rem;">Reversible: \( T\,\mathrm{d}S = \mathrm{d}U + P\,\mathrm{d}V = n C_v\,\mathrm{d}T + P\,\mathrm{d}V \).</p>
+                    $$ \mathrm{d}S = \frac{n C_v}{T}\,\mathrm{d}T + \frac{nR}{V}\,\mathrm{d}V $$
+                    $$ \Delta S = n C_v \ln\!\frac{T_2}{T_1} + n R \ln\!\frac{V_2}{V_1} \qquad \Delta S = n C_p \ln\!\frac{T_2}{T_1} - n R \ln\!\frac{P_2}{P_1} $$
+                </div>
+            </div>
+
+            <div class="card katex-view">
+                <h3 style="color: var(--accent);">4. Enthalpy</h3>
+                <div style="background: var(--bg-darker); padding: 1rem; border-radius: 8px;">
+                    $$ H = U + PV \qquad \mathrm{d}H = \delta Q \ \text{at constant } P $$
+                </div>
+            </div>
+            <div class="card katex-view">
+                <h3 style="color: var(--accent);">5. Mayer relation</h3>
+                <div style="background: var(--bg-darker); padding: 1rem; border-radius: 8px;">
+                    $$ C_p - C_v = R \quad \text{(per mole, ideal gas)} $$
+                </div>
+            </div>
+            <div class="card katex-view" style="grid-column: span 2;">
+                <h3 style="color: var(--accent);">6. Cold-air-standard Otto efficiency</h3>
+                <div style="background: var(--bg-darker); padding: 1rem; border-radius: 8px;">
+                    $$ \eta = 1 - \frac{1}{r^{\gamma - 1}} \qquad r = \frac{V_1}{V_2} \ \text{(compression ratio)} $$
+                </div>
+            </div>
+        </div>

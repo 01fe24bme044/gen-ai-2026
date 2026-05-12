@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThermoViz — Tejaswini Patil | KLE Tech University</title>
+    <meta name="description" content="Advanced AI-powered interactive thermodynamics learning platform — fundamentals to quantum heat engines.">
+    <link rel="manifest" href="manifest.json">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/main.css?v=10">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <h2>Thermo<span>Viz</span></h2>
+            </div>
+            
+            <div style="padding: 0 0.8rem; margin-bottom: 1rem;">
+                <input type="search" id="global-search" placeholder="Search topics, formulas..." style="width: 100%; padding: 0.6rem 0.8rem; border-radius: 8px; border: 1.5px solid rgba(59,130,246,0.35); background: var(--bg-dark); color: var(--text-main); font-size: 0.9rem;">
+                <div id="search-results" style="display: none; background: var(--bg-darker); margin-top: 0.5rem; border-radius: 8px; padding: 0.5rem; max-height: 200px; overflow-y: auto; border: 1px solid var(--border-color);"></div>
+            </div>
+
+            <!-- BASICS -->
+            <div class="nav-section">
+                <h3>🟢 Basics</h3>
+                <ul>
+                    <li class="active" data-view="fundamentals">Zeroth Law &amp; Systems</li>
+                    <li data-view="ideal-gas">Ideal Gas Simulator</li>
+                    <li data-view="gas-laws">Gas Laws Hub</li>
+                    <li data-view="pv-graph">P-V Graph Visualizer</li>
+                    <li data-view="piston">Piston Work Dynamics</li>
+                    <li data-view="first-law">First Law (Turbines)</li>
+                    <li data-view="second-law">Second Law (Entropy)</li>
+                    <li data-view="third-law">Third Law (Absolute Zero)</li>
+                    <li data-view="heat-transfer">Heat Transfer</li>
+                    <li data-view="chem-beginner">Chemical Enthalpy</li>
+                </ul>
+            </div>
+            
+            <!-- INTERMEDIATE -->
+            <div class="nav-section">
+                <h3>🔵 Intermediate</h3>
+                <ul>
+                    <li data-view="carnot">Carnot Engine</li>
+                    <li data-view="cycles">Engine Cycles (Otto/Diesel)</li>
+                    <li data-view="rankine">Rankine Cycle (Steam)</li>
+                    <li data-view="steam-boilers">Boilers &amp; Steam Tables</li>
+                    <li data-view="hvac">HVAC &amp; Refrigeration</li>
+                    <li data-view="combustion">Combustion Thermodynamics</li>
+                    <li data-view="phase-change">Phase Change &amp; Triple Point</li>
+                    <li data-view="maxwell">Maxwell-Boltzmann Dist.</li>
+                    <li data-view="chem-intermediate">Chemical Equilibrium</li>
+                    <li data-view="chem-advanced">Gibbs Free Energy</li>
+                    <li data-view="thermal-equil">Thermal Equilibrium</li>
+                    <li data-view="mech-equil">Mechanical Equilibrium</li>
+                    <li data-view="chem-equil-adv">Chemical Equilibrium (Adv.)</li>
+                    <li data-view="formula-derivations">Formula Derivations</li>
+                </ul>
+            </div>
+            
+            <!-- ADVANCED -->
+            <div class="nav-section adv-section">
+                <h3>🔴 Advanced Topics</h3>
+                <ul>
+                    <li data-view="adv-classical">Classical Thermo (Advanced)</li>
+                    <li data-view="adv-potentials">Thermodynamic Potentials</li>
+                    <li data-view="adv-maxwell-rel">Maxwell Relations</li>
+                    <li data-view="adv-statmech">Statistical Mechanics</li>
+                    <li data-view="adv-phase-trans">Phase Transitions (Landau)</li>
+                    <li data-view="adv-noneq">Non-Equilibrium Thermo</li>
+                    <li data-view="irreversible">Irreversible Processes</li>
+                    <li data-view="onsager">Onsager Relations</li>
+                    <li data-view="adv-quantum">Quantum Thermodynamics</li>
+                    <li data-view="blackbody">Blackbody Radiation</li>
+                    <li data-view="be-fd-dist">Bose-Einstein &amp; Fermi-Dirac</li>
+                    <li data-view="relativistic-thermo">Relativistic Thermodynamics</li>
+                    <li data-view="master-exergy">Exergy &amp; Availability</li>
+                    <li data-view="master-generic">GENERIC Formalism</li>
+                    <li data-view="master-relativistic">Relativistic Heat Flux</li>
+                    <li data-view="adv-cfd">CFD Flow Simulator</li>
+                    <li data-view="master-antigrav">Antigravity Propulsion</li>
+                </ul>
+            </div>
+
+            <!-- VIRTUAL LAB -->
+            <div class="nav-section">
+                <h3>🧪 Virtual Laboratory</h3>
+                <ul>
+                    <li data-view="virtual-lab">Virtual Lab — 17 Research Rigs</li>
+                </ul>
+            </div>
+
+            <!-- ASSESSMENT -->
+            <div class="nav-section">
+                <h3>ASSESSMENT & STUDY</h3>
+                <ul>
+                    <li data-view="quiz">Quiz Arena</li>
+                    <li data-view="numerical-bank">1000+ Numericals</li>
+                    <li data-view="formula-sheet">Formula Cheat Sheet</li>
+                    <li data-view="leaderboard">Global Leaderboard</li>
+                    <li data-view="ai-tutor">Advanced AI Tutor</li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+            <header class="top-bar">
+                <h1 id="page-title">Welcome to ThermoViz</h1>
+                <div style="display: flex; gap: 1rem; align-items: center;">
+                    <div class="user-stats">
+                        <span class="rank">Rank: <strong id="user-rank">Beginner Engineer</strong></span>
+                        <span class="xp">XP: <strong id="user-xp">0</strong></span>
+                    </div>
+                    <button id="theme-toggle" class="btn" style="padding: 0.5rem 1rem; background: var(--panel-bg); border: 1px solid var(--border-color); color: var(--text-main); font-size: 1.2rem;">Light/Dark</button>
+                </div>
+            </header>
+
+            <div class="view-container" id="view-container">
+                <!-- Views will be dynamically loaded here by app.js -->
+            </div>
+        </main>
+    </div>
+
+    <script src="js/simulators/fundamentals.js?v=7"></script>
+    <script src="js/simulators/idealGas.js?v=7"></script>
+    <script src="js/simulators/piston.js?v=7"></script>
+    <script src="js/simulators/pvGraph.js?v=7"></script>
+    <script src="js/simulators/firstLaw.js?v=7"></script>
+    <script src="js/simulators/secondLaw.js?v=7"></script>
+    <script src="js/simulators/carnotEngine.js?v=7"></script>
+    <script src="js/simulators/cycles.js?v=7"></script>
+    <script src="js/simulators/rankineCycle.js?v=7"></script>
+    <script src="js/simulators/hvac.js?v=7"></script>
+    <script src="js/simulators/combustion.js?v=7"></script>
+    <script src="js/simulators/virtualLab.js?v=10"></script>
+    <script src="js/simulators/maxwell.js?v=7"></script>
+    <script src="js/simulators/phaseChange.js?v=7"></script>
+    <script src="js/simulators/chemBeginner.js?v=7"></script>
+    <script src="js/simulators/chemIntermediate.js?v=7"></script>
+    <script src="js/simulators/chemAdvanced.js?v=7"></script>
+    <script src="js/simulators/advClassical.js?v=7"></script>
+    <script src="js/simulators/advPotentials.js?v=7"></script>
+    <script src="js/simulators/advMaxwell.js?v=7"></script>
+    <script src="js/simulators/advStatMech.js?v=7"></script>
+    <script src="js/simulators/advPhaseTransition.js?v=7"></script>
+    <script src="js/simulators/advNonEq.js?v=7"></script>
+    <script src="js/simulators/advQuantum.js?v=7"></script>
+    <script src="js/simulators/advCfd.js?v=7"></script>
+    <script src="js/simulators/thirdLaw.js?v=7"></script>
+    <script src="js/simulators/heatTransfer.js?v=7"></script>
+    <script src="js/simulators/boilers.js?v=9"></script>
+    <script src="js/simulators/antigravSim.js?v=7"></script>
+    <script src="js/components/quiz.js?v=7"></script>
+    <script src="js/components/leaderboard.js?v=7"></script>
+    <script src="js/components/aiTutor.js?v=7"></script>
+    <script src="js/numericals.js?v=7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+    <script src="js/thermo_math.js?v=9"></script>
+    <script src="js/app.js?v=10"></script>
+    <script src="js/patch_views.js?v=8"></script>
+    <script src="js/patch_sims.js?v=8"></script>
+    <script src="js/fix_encoding.js?v=10"></script>
+</body>
+
+</html>
+
+
+
+
